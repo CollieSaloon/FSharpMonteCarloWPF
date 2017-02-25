@@ -1,0 +1,53 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FSCSDemoWPF"
+      xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" x:Class="FSCSDemoWPF.Page1"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="2*"/>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Stock Price" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Expected Return" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Volatility" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Iterations" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBox Name="txtSP" Text="10.00" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100"/>
+            <TextBox  Name="txtER" Text="0.04" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100"/>
+            <TextBox Name="txtVOL" Text="0.015811" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100"/>
+            <TextBox Name="txtITER" Text="1" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100"/>
+        </Grid>
+        <TextBlock Name="txt" Text="F# Monte Carlo Simulation" FontSize="20"  Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button x:Name="DisplayButton" Click="DisplayButton_Click" Width="90" Height="26" Grid.Row="3" HorizontalAlignment="Center" 
+                VerticalAlignment="Center" Content="Display Chart" Background="White" BorderBrush="Black"/>
+        <dxc:ChartControl Name="myChart" Grid.Row="1">
+            <dxc:ChartControl.Titles>
+                <dxc:Title Content="Stock Fluctuation"/>
+            </dxc:ChartControl.Titles>
+            <dxc:ChartControl.CrosshairOptions>
+                <dxc:CrosshairOptions  ShowValueLabels="True" ShowValueLine="True" GroupHeaderPattern="Group: {A}"/>
+            </dxc:ChartControl.CrosshairOptions>
+            <dxc:XYDiagram2D Name="myDiagram" EnableAxisYNavigation="True">
+                <dxc:LineSeries2D Name="Series1" FontSize="12" />
+            </dxc:XYDiagram2D>
+        </dxc:ChartControl>
+    </Grid>
+</Page>
